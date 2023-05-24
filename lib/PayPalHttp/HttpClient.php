@@ -28,7 +28,7 @@ class HttpClient
     /**
      * @var curlCls
      */
-    public curlCls;
+    public $curlCls;
     /**
      * HttpClient constructor. Pass the environment you wish to make calls to.
      *
