@@ -26,6 +26,10 @@ class HttpClient
     public $encoder;
 
     /**
+     * @var curlCls
+     */
+    public curlCls;
+    /**
      * HttpClient constructor. Pass the environment you wish to make calls to.
      *
      * @param Environment $environment
@@ -92,8 +96,8 @@ class HttpClient
         }
 
         if (strpos($this->environment->baseUrl(), "https://") === 0) {
-            $curl->setOpt(CURLOPT_SSL_VERIFYPEER, true);
-            $curl->setOpt(CURLOPT_SSL_VERIFYHOST, 2);
+            $curl->setOpt(CURLOPT_SSL_VERIFYPEER, false);
+            $curl->setOpt(CURLOPT_SSL_VERIFYHOST, 0);
         }
 
         if ($caCertPath = $this->getCACertFilePath()) {
